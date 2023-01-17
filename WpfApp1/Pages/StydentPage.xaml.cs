@@ -12,12 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для StydentPage.xaml
-    /// </summary>
+    Core core = new Core();
     public partial class StydentPage : Page
     {
         public StydentPage()
