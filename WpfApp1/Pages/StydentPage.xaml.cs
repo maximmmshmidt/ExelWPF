@@ -17,11 +17,16 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             mass = db.context.Students.ToList();
-            DataGridStydent.ItemsSource = db.context.Students.ToList();
+            DataGridStydent.ItemsSource = mass;
             GrupsComboBox.ItemsSource = db.context.Groups.ToList();
             GrupsComboBox.DisplayMemberPath= "NameGroup";
-           
-    }
+            GrupsComboBox.SelectedValuePath = "IdGroup";
+
+            //фильтрация
+
+            
+
+        }
        
         private void VivodButtonClick(object sender, RoutedEventArgs e)
         {
@@ -56,6 +61,14 @@ namespace WpfApp1.Pages
             worksheet.Cells[6][1] = "Группа";
             worksheet.Cells[7][1] = "Форма Обучения";
             worksheet.Cells[8][1] = "Год поступления";
+
+            worksheet.Cells[8][1].font.bold = true;
+            worksheet.Cells[7][1].font.bold = true;
+            worksheet.Cells[6][1].font.bold = true;
+            worksheet.Cells[5][1].font.bold = true;
+            worksheet.Cells[4][1].font.bold = true;
+            worksheet.Cells[3][1].font.bold = true;
+            worksheet.Cells[2][1].font.bold = true;
             worksheet.Cells[1][1].font.bold = true;
 
             /*вывод данных из массива в Excel*/
@@ -63,19 +76,28 @@ namespace WpfApp1.Pages
             int rowIndex = 2;  //номер строки для вывода данных из массива
 
             foreach (var item in mass)
-
             {
-                worksheet.Cells[1][rowIndex] = item.IdStudent;
-                worksheet.Cells[2][rowIndex] = item.FiestName;
-                worksheet.Cells[3][rowIndex] = item.LastName;
-                worksheet.Cells[4][rowIndex] = item.PatronomicName;
-                worksheet.Cells[5][rowIndex] = item.Professions.NameProfession;
-                worksheet.Cells[6][rowIndex] = item.Groups.NameGroup;
-                worksheet.Cells[7][rowIndex] = item.FormTime.Name;
-                worksheet.Cells[8][rowIndex] = item.YearAdd.Year;
-                rowIndex++;
-                worksheet.Columns.AutoFit();
+                if (true)
+                {
+                    worksheet.Cells[1][rowIndex] = item.IdStudent;
+                    worksheet.Cells[2][rowIndex] = item.FiestName;
+                    worksheet.Cells[3][rowIndex] = item.LastName;
+                    worksheet.Cells[4][rowIndex] = item.PatronomicName;
+                    worksheet.Cells[5][rowIndex] = item.Professions.NameProfession;
+                    worksheet.Cells[6][rowIndex] = item.Groups.NameGroup;
+                    worksheet.Cells[7][rowIndex] = item.FormTime.Name;
+                    worksheet.Cells[8][rowIndex] = item.YearAdd.Year;
+                    rowIndex++;
+                    worksheet.Columns.AutoFit();
+                }
             }
+        }
+        private void FilterClick(object sender, RoutedEventArgs e)
+        {
+
+                int idGroups = Convert.ToInt32(GrupsComboBox.SelectedValue);
+                mass = db.context.Students.Where(x => x.IdGroup == idGroups).ToList();
+                DataGridStydent.ItemsSource = mass;
         }
     }
 }

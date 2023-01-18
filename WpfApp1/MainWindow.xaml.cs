@@ -24,7 +24,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new StydentPage());
+            MainFrame.Navigate(new LogPage());
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {

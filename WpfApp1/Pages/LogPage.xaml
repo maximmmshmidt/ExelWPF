@@ -8,7 +8,23 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LogPage">
 
-    <Grid>
+    <Grid >
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" >
+            
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Ведите логин:" Margin="5"></Label>
+                <Label Content="Ведите логин:" Margin="5"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="login" Width="100" Height="20" Margin="5"></TextBox>
+                <TextBox x:Name="password" Width="100" Height="20" Margin="5"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Button Content="Войти" x:Name="enter" Click="enter_Click" Margin="5"/>
+                <Button Content="регистрация" x:Name="reign" Click="reign_Click" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
         
+                
     </Grid>
 </Page>

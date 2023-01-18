@@ -24,5 +24,15 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void reign_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void enter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
