@@ -44,7 +44,7 @@ namespace WpfApp1.Pages
 
             Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-            worksheet.Name = "ИмяЛиста"; //имя листа нужно вводить латинскими буквами
+            worksheet.Name = "Student"; //имя листа нужно вводить латинскими буквами
 
             /*заголовки вывод в Excel (в первую строку)*/
 
@@ -56,7 +56,7 @@ namespace WpfApp1.Pages
             worksheet.Cells[6][1] = "Группа";
             worksheet.Cells[7][1] = "Форма Обучения";
             worksheet.Cells[8][1] = "Год поступления";
-
+            worksheet.Cells[1][1].font.bold = true;
 
             /*вывод данных из массива в Excel*/
 
@@ -74,7 +74,7 @@ namespace WpfApp1.Pages
                 worksheet.Cells[7][rowIndex] = item.FormTime.Name;
                 worksheet.Cells[8][rowIndex] = item.YearAdd.Year;
                 rowIndex++;
-
+                worksheet.Columns.AutoFit();
             }
         }
     }
