@@ -1,19 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfApp1.Models;
-using Exel = Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WpfApp1.Pages
 {
@@ -21,24 +12,29 @@ namespace WpfApp1.Pages
     public partial class StydentPage : Page
     {
         readonly Core db = new Core();
+        public List<Students> mass;
         public StydentPage()
         {
             InitializeComponent();
+            mass = db.context.Students.ToList();
             DataGridStydent.ItemsSource = db.context.Students.ToList();
-        }
+            GrupsComboBox.ItemsSource = db.context.Groups.ToList();
+            GrupsComboBox.DisplayMemberPath= "NameGroup";
+           
+    }
+       
         private void VivodButtonClick(object sender, RoutedEventArgs e)
         {
-            List<ИмяТаблицы> имяМассива;
-
             /*создаем файл Excel*/
 
-            var aplication = new Excel.Application();
+            var aplication = new Excel.Application
+            {
+                Visible = true,
 
-            aplication.Visible = true;
+                /*количество листов*/
 
-            /*количество листов*/
-
-            aplication.SheetsInNewWorkbook = 1;
+                SheetsInNewWorkbook = 1
+            };
 
             /*добавляем рабочую книгу*/
 
@@ -52,27 +48,32 @@ namespace WpfApp1.Pages
 
             /*заголовки вывод в Excel (в первую строку)*/
 
-            worksheet.Cells[1][1] = "Заголовок1";
+            worksheet.Cells[1][1] = "Id студента";
+            worksheet.Cells[2][1] = "Фамилиия";
+            worksheet.Cells[3][1] = "Имя";
+            worksheet.Cells[4][1] = "Отчество";
+            worksheet.Cells[5][1] = "Профессия";
+            worksheet.Cells[6][1] = "Группа";
+            worksheet.Cells[7][1] = "Форма Обучения";
+            worksheet.Cells[8][1] = "Год поступления";
 
-            worksheet.Cells[2][1] = "Заголовок2";
 
-            ...
+            /*вывод данных из массива в Excel*/
 
-                /*вывод данных из массива в Excel*/
+            int rowIndex = 2;  //номер строки для вывода данных из массива
 
-                int rowIndex = 2;  //номер строки для вывода данных из массива
-
-            foreach (var item in имяМассива)
+            foreach (var item in mass)
 
             {
-
-                worksheet.Cells[1][rowIndex] = item.ИмяПоля;
-
-                worksheet.Cells[2][rowIndex] = item.ИмяПоля;
-
-                .....
-
-                    rowIndex++;
+                worksheet.Cells[1][rowIndex] = item.IdStudent;
+                worksheet.Cells[2][rowIndex] = item.FiestName;
+                worksheet.Cells[3][rowIndex] = item.LastName;
+                worksheet.Cells[4][rowIndex] = item.PatronomicName;
+                worksheet.Cells[5][rowIndex] = item.Professions.NameProfession;
+                worksheet.Cells[6][rowIndex] = item.Groups.NameGroup;
+                worksheet.Cells[7][rowIndex] = item.FormTime.Name;
+                worksheet.Cells[8][rowIndex] = item.YearAdd.Year;
+                rowIndex++;
 
             }
         }

@@ -15,11 +15,19 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Выберите группу" Margin="10"/>
-            <ListView Width="100" Margin="10" x:Name="GrupsListView"/>
+            <ComboBox Width="100" Margin="10" x:Name="GrupsComboBox"/>
             <Button Content="Вывод отчета" x:Name="VivodButton" Click="VivodButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
         </StackPanel>
         <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False">
-            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding FiestName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding PatronomicName}"/>
+                <DataGridTextColumn Header="Профессия" Binding="{Binding Professions.NameProfession}"/>
+                <DataGridTextColumn Header="Группа" Binding="{Binding Groups.NameGroup}"/>
+                <DataGridTextColumn Header="Форма Обучения" Binding="{Binding FormTime.Name}"/>
+                <DataGridTextColumn Header="Год поступления" Binding="{Binding YearAdd.Year}"/>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Page>
