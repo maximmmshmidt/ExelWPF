@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -158,19 +159,61 @@ namespace WpfApp1.Pages
             cellRange.Text = "№__________________________";
             application.Visible = true;
 
-            // 7 строка
 
-             titleRange = titleParagraph.Range;
+            //7 строка
+            titleRange = titleParagraph.Range;
              titleRange.Text = "Группа №: ";
             titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
             titleRange.InsertParagraphAfter();
 
-            // 8 строка
 
-             titleRange = titleParagraph.Range;
-             titleRange.Text = "Преподаватель:";
+            //8 строка
+            titleRange = titleParagraph.Range;
+            titleRange.Text = "Преподаватель:";
             titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
             titleRange.InsertParagraphAfter();
+
+            //9 строка таблица
+
+            Word.Paragraph tableParagraph1 = document.Paragraphs.Add();
+            Word.Range studentRange = tableParagraph1.Range;
+            Word.Table studentTable = document.Tables.Add(studentRange, mass.Count()+1, 3);
+            studentTable.Rows[1].Range.Bold = 1;
+            studentTable.Borders.InsideLineStyle = studentTable.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            Word.Range cellStudent;
+
+            //9.1.1
+            cellStudent = studentTable.Cell(1, 1).Range;
+            cellStudent.Text = "№ п/п";
+            //9.1.2
+            cellStudent = studentTable.Cell(1, 2).Range;
+            cellStudent.Text = "Фамилия, имя, отчество слушателя";
+            //9.1.3
+            cellStudent = studentTable.Cell(1, 3).Range;
+            cellStudent.Text = "Результат аттестации";
+            int rowIndex = 1;
+            foreach (var item in mass)
+            {
+                if (true)
+                {
+                    cellStudent = studentTable.Cell(rowIndex+1, 2).Range;
+                    cellStudent.Text = $"{item.FiestName} {item.LastName} {item.PatronomicName}";
+
+                    cellStudent = studentTable.Cell(rowIndex+1 , 1).Range;
+                    cellStudent.Text = $"{rowIndex}";
+
+                    rowIndex++;
+                    studentTable.Columns.AutoFit();
+                }
+            }
+
+
+
+
+            application.Visible = true;
+            //сохранение
+            //document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx");
+            //document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx", Word.WdExportFormat.wdExportFormatPDF);
         }
     }
 }
