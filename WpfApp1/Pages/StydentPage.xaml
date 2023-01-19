@@ -20,7 +20,7 @@
             <Button Content="Вывод отчета Exel" x:Name="VivodButton" Click="VivodButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
             <Button Content="Вывод отчета Word" x:Name="VivodWordButton" Click="VivodWordButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False" ColumnWidth="*">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding FiestName}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding LastName}"/>

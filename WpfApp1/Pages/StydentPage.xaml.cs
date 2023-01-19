@@ -55,7 +55,7 @@ namespace WpfApp1.Pages
 
             /*заголовки вывод в Excel (в первую строку)*/
 
-            worksheet.Cells[1][1] = "Id студента";
+            worksheet.Cells[1][1] = "№ ";
             worksheet.Cells[2][1] = "Фамилиия";
             worksheet.Cells[3][1] = "Имя";
             worksheet.Cells[4][1] = "Отчество";
@@ -81,7 +81,7 @@ namespace WpfApp1.Pages
             {
                 if (true)
                 {
-                    worksheet.Cells[1][rowIndex] = item.IdStudent;
+                    worksheet.Cells[1][rowIndex] = rowIndex-1;
                     worksheet.Cells[2][rowIndex] = item.FiestName;
                     worksheet.Cells[3][rowIndex] = item.LastName;
                     worksheet.Cells[4][rowIndex] = item.PatronomicName;
