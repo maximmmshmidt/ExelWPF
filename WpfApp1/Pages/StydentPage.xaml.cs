@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using WpfApp1.Models;
 using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace WpfApp1.Pages
 {
@@ -99,5 +100,78 @@ namespace WpfApp1.Pages
                 mass = db.context.Students.Where(x => x.IdGroup == idGroups).ToList();
                 DataGridStydent.ItemsSource = mass;
         }
+
+        private void VivodWordButtonClick(object sender, RoutedEventArgs e)
+        {
+            
+            // открытие
+             Word.Application application = new Word.Application();
+            //создание
+             Word.Document document = application.Documents.Add();
+            //визуализация
+             application.Visible = true;
+            // 1 строка
+             Word.Paragraph titleParagraph = document.Paragraphs.Add();
+             Word.Range titleRange = titleParagraph.Range;
+            
+            titleRange.Text = "МИНИСТЕРСТВО ОБРАЗОВАНИЯ И МОЛОДЕЖНОЙ ПОЛИТИКИ СВЕРДЛОВСКОЙ ОБЛАСТИ";
+            titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            //перенос строки
+            titleRange.InsertParagraphAfter();
+            // 2 строка
+
+             titleRange = titleParagraph.Range;
+             titleRange.Text = "ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ ПРОФЕССИОНАЛЬНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ";
+            titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            titleRange.InsertParagraphAfter();
+            // 3 строка
+
+            titleRange = titleParagraph.Range;
+             titleRange.Text = "СВЕРДЛОВСКОЙ ОБЛАСТИ";
+            titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            titleRange.InsertParagraphAfter();
+            // 4 строка
+
+            titleRange = titleParagraph.Range;
+             titleRange.Text = "«ЕКАТЕРИНБУРГСКИЙ МОНТАЖНЫЙ КОЛЛЕДЖ»";
+            titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            titleRange.InsertParagraphAfter();
+            //перенос строки
+            
+            // 5 строка
+
+             titleRange = titleParagraph.Range;
+             titleRange.Text = "ВЕДОМОСТЬ итоговой аттестации";
+            titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+            titleRange.InsertParagraphAfter();
+
+            //6 строка таблица
+
+            Word.Paragraph tableParagraph = document.Paragraphs.Add();
+            Word.Range tableRange = tableParagraph.Range;
+            application.Visible = true;
+            Word.Table titleTable = document.Tables.Add(tableRange, 1, 3);
+            Word.Range cellRange;
+            cellRange = titleTable.Cell(1, 1).Range;
+            cellRange.Text = "«_____» _________ 20_____ Г.";
+            cellRange = titleTable.Cell(1, 3).Range;
+            cellRange.Text = "№__________________________";
+            application.Visible = true;
+
+            // 7 строка
+
+             titleRange = titleParagraph.Range;
+             titleRange.Text = "Группа №: ";
+            titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            titleRange.InsertParagraphAfter();
+
+            // 8 строка
+
+             titleRange = titleParagraph.Range;
+             titleRange.Text = "Преподаватель:";
+            titleRange.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+            titleRange.InsertParagraphAfter();
+        }
     }
 }
+

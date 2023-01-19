@@ -32,7 +32,7 @@ namespace WpfApp1.Pages
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

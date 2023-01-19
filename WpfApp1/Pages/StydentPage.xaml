@@ -17,7 +17,8 @@
             <TextBlock Text="Выберите группу" Margin="10"/>
             <ComboBox Width="100" Margin="10" x:Name="GrupsComboBox"/>
             <Button x:Name="Filter" Content="filter" Background="Transparent" BorderBrush="Transparent" Click="FilterClick"/>
-            <Button Content="Вывод отчета" x:Name="VivodButton" Click="VivodButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
+            <Button Content="Вывод отчета Exel" x:Name="VivodButton" Click="VivodButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
+            <Button Content="Вывод отчета Word" x:Name="VivodWordButton" Click="VivodWordButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
         </StackPanel>
         <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False">
             <DataGrid.Columns>
