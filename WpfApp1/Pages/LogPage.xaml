@@ -13,14 +13,14 @@
             
             <StackPanel Orientation="Horizontal">
                 <Label Content="Ведите логин:" Margin="5"></Label>
-                <Label Content="Ведите логин:" Margin="5"></Label>
+                <Label Content="Ведите пароль:" Margin="5"></Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="login" Width="100" Height="20" Margin="5"></TextBox>
-                <TextBox x:Name="password" Width="100" Height="20" Margin="5"></TextBox>
+                <PasswordBox x:Name="password" Width="100" Height="20" Margin="5"></PasswordBox>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <Button Content="Войти" x:Name="enter" Click="enter_Click" Margin="5"/>
+                <Button Content="Войти" x:Name="enter" Click="LogUserButtonClick" Margin="5"/>
                 <Button Content="регистрация" x:Name="reign" Click="reign_Click" Margin="5"/>
             </StackPanel>
         </StackPanel>

@@ -9,6 +9,12 @@
       Title="HomePage">
 
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button x:Name="AddStudent" Content="Добавить студнета" Margin="15" Padding="5" FontSize="18" Background="Transparent" Click="AddStudentButtonClick"/>
+            <Button x:Name="AddOcenka" Content="Добавить Оценку" Margin="15" Padding="5" FontSize="18" Background="Transparent" Click="AddOcenkaButtonClick"/>
+            <Button x:Name="ListStydent" Content="Список студнетов" Margin="15" Padding="5" FontSize="18" Background="Transparent" Click="ListStydentButtonClick"/>
+            <Button x:Name="EddingOcenka" Content="Редактирование оценки" Margin="15" Padding="5" FontSize="18" Background="Transparent" Click="EddingOcenkaButtonClick"/>
+            <Button x:Name="DeleteStydent" Content="Удалить студнета" Margin="15" Padding="5" FontSize="18" Background="Transparent" Click="DeleteStydentButtonClick"/>
+        </StackPanel>
     </Grid>
 </Page>

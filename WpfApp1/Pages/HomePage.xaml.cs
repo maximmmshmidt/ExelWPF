@@ -24,5 +24,30 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void ListStydentButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new StydentPage());
+        }
+
+        private void AddStudentButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddOcenkaButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EddingOcenkaButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteStydentButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
