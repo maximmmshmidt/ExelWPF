@@ -13,6 +13,6 @@
         </Grid.RowDefinitions>
         <Image Source="Assets\Images\wsr-300.png" HorizontalAlignment="Left"/>
         <Button Content="Back" HorizontalAlignment="Right" Width="60" Background="Transparent" BorderBrush="Transparent" x:Name="BackButton" Click="BackButtonClick"/>
-        <Frame Grid.Row="1" x:Name="MainFrame"/>
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

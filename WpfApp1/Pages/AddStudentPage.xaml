@@ -1,0 +1,50 @@
+﻿<Page x:Class="WpfApp1.Pages.AddStudentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddStudentPage">
+
+    <Grid >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel >
+                    <TextBlock Text="Введите Фамилия"/>
+                    <TextBox Width="200" Margin="5" x:Name="FirstNTextBox"/>
+                </StackPanel>
+                <StackPanel >
+                    <TextBlock Text="Введите Имя"/>
+                    <TextBox Width="200" Margin="5" x:Name="LastNTextBox"/>
+
+                </StackPanel>
+                <StackPanel >
+                    <TextBlock Text="Введите Отчество"/>
+                    <TextBox Width="200" Margin="5" x:Name="PatrNTextBox"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+
+                <StackPanel>
+                    <TextBlock Text="Специальность"/>
+                    <ComboBox Width="200" Margin="5" x:Name="SpecializationComboBox"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Год поступления"/>
+                    <ComboBox Margin="5" x:Name="YearOfAdmissionComboBox"/>
+                </StackPanel>
+                <StackPanel >
+                    <TextBlock Text="Форма Обучения"/>
+                    <ComboBox Margin="5" Name="FormOfTraining" />
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Название Группы"/>
+                    <ComboBox Margin="5" Name="NameGroupComboBox"/>
+                </StackPanel>
+                <Button Content="Добавление Студента" x:Name="AddStudentButton" Click="AddStudentButton_Click" Background="Transparent"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

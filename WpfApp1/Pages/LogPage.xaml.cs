@@ -11,7 +11,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class LogPage : Page
     {
-        Core bd = new Core();
+        readonly Core bd = new Core();
         public LogPage()
         {
             InitializeComponent();
@@ -52,7 +52,7 @@ namespace WpfApp1.Pages
 
                             break;
                         case 2:
-                            this.NavigationService.Navigate(new StydentPage());
+                            this.NavigationService.Navigate(new LogPage());
 
                             break;
 

@@ -32,7 +32,7 @@ namespace WpfApp1.Pages
 
         private void AddStudentButtonClick(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new AddStudentPage());
         }
 
         private void AddOcenkaButtonClick(object sender, RoutedEventArgs e)

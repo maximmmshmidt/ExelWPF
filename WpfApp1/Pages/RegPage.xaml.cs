@@ -38,7 +38,7 @@ namespace WpfApp1.Pages
                         Users users = new Users()
                         {
                             Login = login.Text,
-                            Password = Passwords.Password
+                            Password = Passwords.Text
 
                         };
 
