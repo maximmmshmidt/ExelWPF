@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Models;
+using WpfApp1.Controlers;
 
 namespace WpfApp1.Pages
 {
@@ -21,7 +22,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class RegPage : Page
     {
-        readonly Core bd = new Core();
+        
         public RegPage()
         {
             InitializeComponent();
@@ -29,43 +30,13 @@ namespace WpfApp1.Pages
 
         private void RegClick(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(login.Text))
+            if (UsersControlers.Registrration(login.Text, Passwords.Text, PasswordTwo.Text))
             {
-                if (!string.IsNullOrEmpty(Passwords.Text) & !string.IsNullOrEmpty(PasswordTwo.Text))
-                {
-                    if (Passwords.Text == PasswordTwo.Text)
-                    {
-                        Users users = new Users()
-                        {
-                            Login = login.Text,
-                            Password = Passwords.Text
-
-                        };
-
-                        bd.context.Users.Add(users);
-                        bd.context.SaveChanges();
-
-                        MessageBox.Show("Добавление выполнено успешно !",
-                        "Уведомление",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Information);
-
-                        this.NavigationService.Navigate(new HomePage());
-                    }
-                    else
-                    {
-                        MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-                
+                this.NavigationService.Navigate(new HomePage());
             }
             else
             {
-                MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+
             }
         }
     }
