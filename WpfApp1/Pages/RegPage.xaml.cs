@@ -21,7 +21,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class RegPage : Page
     {
-        Core bd = new Core();
+        readonly Core bd = new Core();
         public RegPage()
         {
             InitializeComponent();

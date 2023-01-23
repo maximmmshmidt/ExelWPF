@@ -21,7 +21,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AddStudentPage : Page
     {
-        Core bd = new Core();
+        readonly Core bd = new Core();
         public AddStudentPage()
         {
             InitializeComponent();
@@ -29,43 +29,58 @@ namespace WpfApp1.Pages
             // Специальность
             SpecializationComboBox.ItemsSource = bd.context.Professions.ToList();
             SpecializationComboBox.DisplayMemberPath = "NameProfession";
+            SpecializationComboBox.SelectedValuePath = "IdProfession";
             // Год постпуления
             YearOfAdmissionComboBox.ItemsSource = bd.context.YearAdd.ToList();
             YearOfAdmissionComboBox.DisplayMemberPath = "Year";
+            YearOfAdmissionComboBox.SelectedValuePath = "idYear";
             // Форма Обучения
             FormOfTraining.ItemsSource = bd.context.FormTime.ToList();
             FormOfTraining.DisplayMemberPath = "Name";
+            FormOfTraining.SelectedValuePath = "Id";
             // Группа
             NameGroupComboBox.ItemsSource = bd.context.Groups.ToList();
             NameGroupComboBox.DisplayMemberPath = "NameGroup";
+            NameGroupComboBox.SelectedValuePath = "IdGroup";
         }
 
         private void AddStudentButton_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(FirstNTextBox.Text) && !string.IsNullOrEmpty(LastNTextBox.Text) && !string.IsNullOrEmpty(PatrNTextBox.Text))
             {
-                try
+                if (SpecializationComboBox != null && YearOfAdmissionComboBox != null && FormOfTraining != null && NameGroupComboBox != null )
                 {
-                    Students addstudents = new Students()
+                    try
                     {
-                        FiestName = FirstNTextBox.Text,
-                        LastName = LastNTextBox.Text,
-                        PatronomicName = PatrNTextBox.Text,
-                    };
+                        int idProf = Convert.ToInt32(SpecializationComboBox.SelectedValue);
+                        int idFromTime= Convert.ToInt32(FormOfTraining.SelectedValue);
+                        int idYear= Convert.ToInt32(YearOfAdmissionComboBox.SelectedValue);
+                        int idGroup = Convert.ToInt32(NameGroupComboBox.SelectedValue);
+                        Students addstudents = new Students()
+                        {
+                            FiestName = FirstNTextBox.Text,
+                            LastName = LastNTextBox.Text,
+                            PatronomicName = PatrNTextBox.Text,
+                            IdProfession = idProf,
+                            IdFormTime = idFromTime,
+                            IdGroup = idGroup,
+                            IdYearAdd = idYear
+                        };
 
-                    bd.context.Students.Add(addstudents);
-                    bd.context.SaveChanges();
+                        bd.context.Students.Add(addstudents);
+                        bd.context.SaveChanges();
 
-                    MessageBox.Show("Добавление выполнено успешно !",
-                    "Уведомление",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                        MessageBox.Show("Добавление выполнено успешно !",
+                        "Уведомление",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
 
 
-                }
-                catch
-                {
-                    MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
             }
         }
