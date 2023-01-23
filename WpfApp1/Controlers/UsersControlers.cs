@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using WpfApp1.Models;
-using WpfApp1.Pages;
 
 namespace WpfApp1.Controlers
 {
@@ -38,17 +33,17 @@ namespace WpfApp1.Controlers
                     }
                     else
                     {
-                        throw new Exception("Критический сбор в работе приложения:");
+                        return false;
                     }
                 }
                 else
                 {
-                    throw new Exception("Критический сбор в работе приложения:");
+                    return false;
                 }
             }
             else
             {
-                throw new Exception("Критический сбор в работе приложения:");
+                return false;
             }
         }
     }

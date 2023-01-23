@@ -36,7 +36,7 @@ namespace WpfApp1.Pages
             }
             else
             {
-
+                MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

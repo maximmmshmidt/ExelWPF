@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WpfApp1.Controlers;
 
 namespace TestWpfApp
 {
@@ -6,9 +7,17 @@ namespace TestWpfApp
     public class TestClassRegistration
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Cheack_IsNull()
         {
-
+            //Arrange
+            string login, password, passwordTwo;
+            login = "";
+            password = "";
+            passwordTwo = "";
+            //Act
+            bool actual = UsersControlers.Registrration(login, password, passwordTwo);
+            //Assert
+            Assert.IsFalse(actual);
         }
     }
 }
