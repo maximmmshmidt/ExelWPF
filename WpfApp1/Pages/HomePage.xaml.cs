@@ -37,7 +37,7 @@ namespace WpfApp1.Pages
 
         private void AddOcenkaButtonClick(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new AddRatingPage());
         }
 
         private void EddingOcenkaButtonClick(object sender, RoutedEventArgs e)

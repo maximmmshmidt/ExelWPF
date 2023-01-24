@@ -1,0 +1,30 @@
+﻿<Page x:Class="WpfApp1.Pages.AddRatingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddRatingPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
+            <TextBlock Text="Выберите группу:"/>
+            <ComboBox Margin="5" x:Name="NameGrooupComboBox" SelectionChanged="NameGrooupComboBoxSelectionChanged"/>
+            <TextBlock Text="Выберите судента:"/>
+            <ComboBox Margin="5" x:Name="StudentComboBox" IsEnabled="False"/>
+            <TextBlock Text="Выберите дисциплину:"/>
+            <ComboBox Margin="5" x:Name="DisciplineComboBox"/>
+            <TextBlock Text="Оценка:"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="1" Margin="10 0 10 0" Width="20" Background="Red" BorderBrush="Transparent" x:Name="OneButton" Click="OneButton_Click"/>
+                <Button Content="2" Margin="10 0 10 0" Width="20" Background="Red" BorderBrush="Transparent" x:Name="TwoButton" Click="TwoButton_Click"/>
+                <Button Content="3" Margin="10 0 10 0" Width="20" Background="Red" BorderBrush="Transparent" x:Name="TreeButton" Click="TreeButton_Click"/>
+                <Button Content="4" Margin="10 0 10 0" Width="20" Background="Red" BorderBrush="Transparent" x:Name="ForButton" Click="ForButton_Click"/>
+                <Button Content="5" Margin="10 0 10 0" Width="20" Background="Red" BorderBrush="Transparent" x:Name="FiveButton" Click="FiveButton_Click"/>
+            </StackPanel>
+            <Button Content="Поставить оценку" Margin="5" Background="Transparent" x:Name="AddRatingButton" Click="AddRatingButtonClick"/>
+        </StackPanel>
+    </Grid>
+</Page>

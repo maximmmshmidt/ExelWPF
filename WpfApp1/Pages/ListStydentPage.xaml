@@ -15,8 +15,9 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Выберите группу" Margin="10"/>
-            <ComboBox Width="100" Margin="10" x:Name="GrupsComboBox"/>
-            <Button x:Name="Filter" Content="filter" Background="Transparent" BorderBrush="Transparent" Click="FilterClick"/>
+            <ComboBox Width="100" Margin="10" x:Name="GrupsComboBox" SelectionChanged="GrupsComboBoxSelectionChanged" >
+               
+            </ComboBox>
             <Button Content="Вывод отчета Exel" x:Name="VivodButton" Click="VivodButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
             <Button Content="Вывод отчета Word" x:Name="VivodWordButton" Click="VivodWordButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
         </StackPanel>
@@ -29,6 +30,7 @@
                 <DataGridTextColumn Header="Группа" Binding="{Binding Groups.NameGroup}"/>
                 <DataGridTextColumn Header="Форма Обучения" Binding="{Binding FormTime.Name}"/>
                 <DataGridTextColumn Header="Год поступления" Binding="{Binding YearAdd.Year}"/>
+                <DataGridTextColumn Header="Профиль" x:Name="ProfilDataGridTextColumn"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

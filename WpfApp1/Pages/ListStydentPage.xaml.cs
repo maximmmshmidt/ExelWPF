@@ -20,9 +20,20 @@ namespace WpfApp1.Pages
             InitializeComponent();
             mass = db.context.Students.ToList();
             DataGridStydent.ItemsSource = mass;
-            GrupsComboBox.ItemsSource = db.context.Groups.ToList();
-            GrupsComboBox.DisplayMemberPath= "NameGroup";
-            GrupsComboBox.SelectedValuePath = "IdGroup";
+            var arrGroups = new List<Groups>
+                {
+                    new Groups()
+                    {
+                        IdGroup = 0,
+                        NameGroup = "Все группы"
+                    }
+                };
+            arrGroups.AddRange(db.context.Groups.ToList());
+
+            GrupsComboBox.ItemsSource = arrGroups;
+           
+           GrupsComboBox.DisplayMemberPath= "NameGroup";
+           GrupsComboBox.SelectedValuePath = "IdGroup";
 
             //фильтрация
 
@@ -93,13 +104,6 @@ namespace WpfApp1.Pages
                     worksheet.Columns.AutoFit();
                 }
             }
-        }
-        private void FilterClick(object sender, RoutedEventArgs e)
-        {
-
-                int idGroups = Convert.ToInt32(GrupsComboBox.SelectedValue);
-                mass = db.context.Students.Where(x => x.IdGroup == idGroups).ToList();
-                DataGridStydent.ItemsSource = mass;
         }
 
         private void VivodWordButtonClick(object sender, RoutedEventArgs e)
@@ -214,6 +218,19 @@ namespace WpfApp1.Pages
             //сохранение
             //document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx");
             //document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx", Word.WdExportFormat.wdExportFormatPDF);
+        }
+        private void GrupsComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int idGroups = Convert.ToInt32(GrupsComboBox.SelectedValue);
+            if (GrupsComboBox.SelectedIndex == 0)
+            {
+                mass = db.context.Students.ToList();
+            }
+            else
+            {
+                mass = db.context.Students.Where(x => x.IdGroup == idGroups).ToList();
+            }
+            DataGridStydent.ItemsSource = mass;
         }
     }
 }
