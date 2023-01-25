@@ -21,7 +21,7 @@
             <Button Content="Вывод отчета Exel" x:Name="VivodButton" Click="VivodButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
             <Button Content="Вывод отчета Word" x:Name="VivodWordButton" Click="VivodWordButtonClick" Margin="10" Background="Transparent" BorderBrush="Aqua"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False" ColumnWidth="*">
+        <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False" AutomationProperties.IsRowHeader="False" ColumnWidth="*">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding FiestName}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding LastName}"/>
@@ -30,7 +30,15 @@
                 <DataGridTextColumn Header="Группа" Binding="{Binding Groups.NameGroup}"/>
                 <DataGridTextColumn Header="Форма Обучения" Binding="{Binding FormTime.Name}"/>
                 <DataGridTextColumn Header="Год поступления" Binding="{Binding YearAdd.Year}"/>
-                <DataGridTextColumn Header="Профиль" x:Name="ProfilDataGridTextColumn"/>
+                <DataGridTemplateColumn Header="Профиль">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button Content="Провиль" x:Name="ProfilButton" Background="Transparent" Click="ProfilButtonClick" ></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

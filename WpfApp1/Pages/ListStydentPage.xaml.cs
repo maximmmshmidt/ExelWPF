@@ -216,8 +216,8 @@ namespace WpfApp1.Pages
 
             application.Visible = true;
             //сохранение
-            //document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx");
-            //document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx", Word.WdExportFormat.wdExportFormatPDF);
+            document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx");
+            document.SaveAs2($"{Directory.GetCurrentDirectory()}\\Docs\\test.docx", Word.WdExportFormat.wdExportFormatPDF);
         }
         private void GrupsComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -231,6 +231,10 @@ namespace WpfApp1.Pages
                 mass = db.context.Students.Where(x => x.IdGroup == idGroups).ToList();
             }
             DataGridStydent.ItemsSource = mass;
+        }
+        private void ProfilButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ProfilStudentPage());
         }
     }
 }

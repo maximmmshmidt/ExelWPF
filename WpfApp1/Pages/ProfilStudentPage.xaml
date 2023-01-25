@@ -1,0 +1,46 @@
+﻿<Page x:Class="WpfApp1.Pages.ProfilStudentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProfilStudentPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="ФИО: "/>
+                <TextBlock x:Name="FIOTextBlock"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="профессия: "/>
+                <TextBlock x:Name="ProfesiaTextBlock"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="группа: "/>
+                <TextBlock x:Name="GroupsTextBlock"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="форма обучение: "/>
+                <TextBlock x:Name="FormTrainingTextBlock"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="год обучение: "/>
+                <TextBlock x:Name="YearTrainingTextBlock"/>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False" AutomationProperties.IsRowHeader="False" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Предмет" Binding="{Binding Subjects.NameSubject}" Width="auto"/>
+                <DataGridTextColumn Header="Оценки" Binding="{Binding Groups.NameGroup}" Width="auto"/>
+                <DataGridTextColumn Header="Итоговые" Binding="{Binding Journals.Evaluation}" Width="auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
