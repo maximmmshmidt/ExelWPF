@@ -34,6 +34,9 @@
                 <TextBlock Text="год поступления: "/>
                 <TextBlock x:Name="YearTrainingTextBlock"/>
             </StackPanel>
+            <StackPanel>
+                <Button Content="Диплом" x:Name="DiplomButton" Click="DiplomButtonClick" Background="Transparent" BorderBrush="Aqua"/>
+            </StackPanel>
         </StackPanel>
         <DataGrid Grid.Row="1" x:Name="DataGridJournals" AutoGenerateColumns="False" AutomationProperties.IsRowHeader="False" ColumnWidth="*">
             <DataGrid.Columns>
