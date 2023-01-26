@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1.Pages
 {
@@ -20,9 +21,19 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class ProfilStudentPage : Page
     {
-        public ProfilStudentPage()
+        public List<Journals> mass;
+        public ProfilStudentPage(Students activeStudent)
         {
             InitializeComponent();
+            // Информация о студенте 
+            FIOTextBlock.Text = activeStudent.LastName + " " + activeStudent.FiestName + " " + activeStudent.PatronomicName;
+            ProfesiaTextBlock.Text = activeStudent.Professions.NameProfession;
+            GroupsTextBlock.Text = activeStudent.Groups.NameGroup;
+            FormTrainingTextBlock.Text = activeStudent.FormTime.Name;
+            YearTrainingTextBlock.Text = activeStudent.YearAdd.Year.ToString();
+            //
+            mass = activeStudent.Journals.ToList(); 
+            DataGridJournals.ItemsSource = mass;
         }
     }
 }

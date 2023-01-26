@@ -31,15 +31,15 @@
                 <TextBlock x:Name="FormTrainingTextBlock"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="год обучение: "/>
+                <TextBlock Text="год поступления: "/>
                 <TextBlock x:Name="YearTrainingTextBlock"/>
             </StackPanel>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="DataGridStydent" AutoGenerateColumns="False" AutomationProperties.IsRowHeader="False" ColumnWidth="*">
+        <DataGrid Grid.Row="1" x:Name="DataGridJournals" AutoGenerateColumns="False" AutomationProperties.IsRowHeader="False" ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding Subjects.NameSubject}" Width="auto"/>
-                <DataGridTextColumn Header="Оценки" Binding="{Binding Groups.NameGroup}" Width="auto"/>
-                <DataGridTextColumn Header="Итоговые" Binding="{Binding Journals.Evaluation}" Width="auto"/>
+                <DataGridTextColumn Header="Предмет" Binding="{Binding Subjects.NameSubject}" />
+                <DataGridTextColumn Header="Оценки"/>
+                <DataGridTextColumn Header="Итоговые" Binding="{Binding Journals.Evaluation}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

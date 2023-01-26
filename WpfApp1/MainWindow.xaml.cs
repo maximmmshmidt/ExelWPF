@@ -29,7 +29,7 @@ namespace WpfApp1
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.GoBack();
         }
     }
 }

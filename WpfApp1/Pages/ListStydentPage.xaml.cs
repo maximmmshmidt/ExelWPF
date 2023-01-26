@@ -234,7 +234,13 @@ namespace WpfApp1.Pages
         }
         private void ProfilButtonClick(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new ProfilStudentPage());
+            //Students activeStudent = ((Button)sender).DataContext as Students;
+            Button activeButton =sender as Button;
+            Students activeStudent = activeButton.DataContext as Students;
+            if (activeStudent != null)
+            {
+                this.NavigationService.Navigate(new ProfilStudentPage(activeStudent));
+            }
         }
     }
 }

@@ -30,11 +30,11 @@
                 <DataGridTextColumn Header="Группа" Binding="{Binding Groups.NameGroup}"/>
                 <DataGridTextColumn Header="Форма Обучения" Binding="{Binding FormTime.Name}"/>
                 <DataGridTextColumn Header="Год поступления" Binding="{Binding YearAdd.Year}"/>
-                <DataGridTemplateColumn Header="Профиль">
+                <DataGridTemplateColumn Header="Профиль" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button Content="Провиль" x:Name="ProfilButton" Background="Transparent" Click="ProfilButtonClick" ></Button>
+                                <Button Content="Провиль" x:Name="ProfilButton" Background="Transparent" Click="ProfilButtonClick" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
