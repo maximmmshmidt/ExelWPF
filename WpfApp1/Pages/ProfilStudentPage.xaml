@@ -42,7 +42,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Subjects.NameSubject}" />
                 <DataGridTextColumn Header="Оценки"/>
-                <DataGridTextColumn Header="Итоговые" Binding="{Binding Journals.Evaluation}"/>
+                <DataGridTextColumn Header="Итоговые" Binding="{Binding Evaluation}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

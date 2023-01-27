@@ -100,7 +100,28 @@ namespace WpfApp1.Pages
         }
         private void AddRatingButtonClick(object sender, RoutedEventArgs e)
         {
-            
+            try
+
+            {
+                Journals имяОбъекта = new Journals()
+                {
+                    
+                };
+
+                имяПеременной.context.ИмяКласса.Add(имяОбъекта);
+                имяПеременной.context.SaveChanges();
+
+                MessageBox.Show("Добавление выполнено успешно !",
+                "Уведомление",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+
+
+            }
+            catch
+            {
+                MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void NameGrooupComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)

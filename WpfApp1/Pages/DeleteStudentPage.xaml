@@ -9,6 +9,21 @@
       Title="DeleteStudentPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions >
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+            
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="выберите группу" Margin="5 0 15 0"/>
+            <ComboBox Width="100" x:Name="GrupComboBox"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1">
+
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="Delete" x:Name="DeleteStudentButton" Click="DeleteStudentButton_Click" Width="100" Height="20"/>
+        </StackPanel>
     </Grid>
 </Page>

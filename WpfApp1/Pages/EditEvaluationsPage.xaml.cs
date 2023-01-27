@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для DeleteStudentPage.xaml
+    /// Логика взаимодействия для EditEvaluationsPage.xaml
     /// </summary>
-    public partial class DeleteStudentPage : Page
+    public partial class EditEvaluationsPage : Page
     {
-        public DeleteStudentPage()
+        public EditEvaluationsPage()
         {
             InitializeComponent();
-        }
-
-        private void DeleteStudentButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

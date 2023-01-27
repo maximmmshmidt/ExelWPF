@@ -42,12 +42,12 @@ namespace WpfApp1.Pages
 
         private void EddingOcenkaButtonClick(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new EditEvaluationsPage());
         }
 
         private void DeleteStydentButtonClick(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new DeleteStudentPage());
         }
     }
 }

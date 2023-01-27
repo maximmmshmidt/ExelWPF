@@ -89,6 +89,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EditEvaluationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditStudentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +182,12 @@
     </Compile>
     <Compile Include="Pages\DeleteStudentPage.xaml.cs">
       <DependentUpon>DeleteStudentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditEvaluationsPage.xaml.cs">
+      <DependentUpon>EditEvaluationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditStudentPage.xaml.cs">
+      <DependentUpon>EditStudentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
