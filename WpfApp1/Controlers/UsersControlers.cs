@@ -46,31 +46,6 @@ namespace WpfApp1.Controlers
                 return false;
             }
         }
-        public static bool AddRating(string discipline, string student, string nameGroup, int ocenka)
-        {
-            
-            if (!string.IsNullOrEmpty(discipline) && !string.IsNullOrEmpty(student) && !string.IsNullOrEmpty(nameGroup))
-            {
-                if (ocenka != 0)
-                {
-                    //Students addstudents = new Students()
-                    //{
-
-                    //};
-                    //bd.context.Students.Add(addstudents);
-                    //bd.context.SaveChanges();
-                    MessageBox.Show("Оценка добавлена");
-                }
-                else
-                {
-                    MessageBox.Show("Выберите оценку");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Заполните все поля");
-            }
-            return false;
-        }
+        
     }
 }

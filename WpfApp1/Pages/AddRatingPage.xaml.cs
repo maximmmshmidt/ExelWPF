@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.Models;
+using WpfApp1.Controlers;
 
 namespace WpfApp1.Pages
 {
@@ -100,28 +101,7 @@ namespace WpfApp1.Pages
         }
         private void AddRatingButtonClick(object sender, RoutedEventArgs e)
         {
-            try
-
-            {
-                Journals имяОбъекта = new Journals()
-                {
-                    
-                };
-
-                имяПеременной.context.ИмяКласса.Add(имяОбъекта);
-                имяПеременной.context.SaveChanges();
-
-                MessageBox.Show("Добавление выполнено успешно !",
-                "Уведомление",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
-
-
-            }
-            catch
-            {
-                MessageBox.Show("Критический сбор в работе приложения:", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            JournalsControlers.AddRating(Convert.ToInt32(DisciplineComboBox.SelectedValue), Convert.ToInt32(StudentComboBox.SelectedValue), Convert.ToInt32(NameGrooupComboBox.SelectedValue), i);
         }
 
         private void NameGrooupComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
