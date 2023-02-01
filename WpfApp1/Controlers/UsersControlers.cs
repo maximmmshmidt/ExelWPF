@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using WpfApp1.Models;
+using System.Linq;
+using WpfApp1.Pages;
 
 namespace WpfApp1.Controlers
 {
@@ -46,6 +48,52 @@ namespace WpfApp1.Controlers
                 return false;
             }
         }
-        
+        public static bool LogUsers(string login, string password )
+        {
+            try
+            {
+
+                //считаем количество записей в таблице с заданными параметрами (логин, пароль)
+                Users users = bd.context.Users.Where(
+                x => x.Login == login. && x.Password == password
+                ).FirstOrDefault();
+
+                if (users == null)
+                {
+                    MessageBox.Show("Такой пользователь отсутствует!",
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                    return false;
+                }
+                else
+                {
+
+                    switch (users.IdRole)
+                    {
+
+                        case 1:
+                            this.NavigationService.Navigate(new HomePage());
+                            
+                            break;
+                        case 2:
+                            this.NavigationService.Navigate(new LogPage());
+                            ;
+                            break;
+                            
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Критический сбор в работе приложения:" + ex.Message.ToString(),
+                "Уведомление",
+                MessageBoxButton.OK,
+                MessageBoxImage.Warning);
+                return false;
+            }
+        }
     }
 }
