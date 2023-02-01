@@ -10,23 +10,23 @@ namespace WpfApp1.Controlers
 {
     class JournalsControlers
     {
-        public static List<Journals> mass;
+        public static Journals mass;
         readonly static Core bd = new Core();
         /// <summary>
-        /// 
+        /// добавление оценок
         /// </summary>
         /// <param name="discipline"></param>
-        /// <param name="student"></param>
-        /// <param name="nameGroup"></param>
-        /// <param name="ocenka"></param>
+        /// <param name="student">студент</param>
+        /// <param name="nameGroup"> группа </param>
+        /// <param name="ocenka"> итоговая оценка </param>
         /// <returns></returns>
         public static bool AddRating(int discipline, int student, int nameGroup, int ocenka)
         {
-            mass = bd.context.Journals.Where(x => x.IdStudent == student && x.IdSubject == discipline).ToList();
+            mass = bd.context.Journals.Where(x => x.IdStudent == student && x.IdSubject == discipline).FirstOrDefault();
             
-            if (mass.Count() == 0)
+            if (mass==null && ocenka != 0)
                 {
-                if (discipline != 0 && student != 0 && nameGroup != 0)
+                if (discipline != 0 && student != 0 && nameGroup != 0 )
                 {
                     Journals evalution = new Journals()
                     {
@@ -50,6 +50,31 @@ namespace WpfApp1.Controlers
                 {
                     return false;
                 }
+            }
+            if (mass != null && ocenka != 0)
+            {
+                RemoveEvalution(ocenka, mass.IdJournal);
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+           
+        }
+        /// <summary>
+        /// Редатирование оценки
+        /// </summary>
+        /// <param name="ocenka"></param>
+        /// <param name="idJournal"></param>
+        /// <returns></returns>
+        public static bool RemoveEvalution(int ocenka, int idJournal)
+        {
+            Journals ectiveElement = bd.context.Journals.Where(x => x.IdJournal == idJournal ).FirstOrDefault();
+            ectiveElement.Evaluation = ocenka;
+            if (bd.context.SaveChanges()>0)
+            {
+                return true;
             }
             else
             {

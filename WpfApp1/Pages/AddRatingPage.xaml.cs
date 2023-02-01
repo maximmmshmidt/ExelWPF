@@ -101,7 +101,15 @@ namespace WpfApp1.Pages
         }
         private void AddRatingButtonClick(object sender, RoutedEventArgs e)
         {
-            JournalsControlers.AddRating(Convert.ToInt32(DisciplineComboBox.SelectedValue), Convert.ToInt32(StudentComboBox.SelectedValue), Convert.ToInt32(NameGrooupComboBox.SelectedValue), i);
+
+            if (JournalsControlers.AddRating(Convert.ToInt32(DisciplineComboBox.SelectedValue), Convert.ToInt32(StudentComboBox.SelectedValue), Convert.ToInt32(NameGrooupComboBox.SelectedValue), i))
+            {
+                MessageBox.Show("Все прошло хорошо");
+            }
+            else
+            {
+                MessageBox.Show("Все прошло плохо!");
+            }
         }
 
         private void NameGrooupComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
