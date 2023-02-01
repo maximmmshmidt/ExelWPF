@@ -25,7 +25,7 @@ namespace WpfApp1.Pages
 
         private void LogUserButtonClick(object sender, RoutedEventArgs e)
         {
-            UsersControlers.LogUsers();
+            UsersControlers.LogUsers(login.Text, password.Password);
         }
     }
 }

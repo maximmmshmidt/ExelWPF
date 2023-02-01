@@ -3,6 +3,7 @@ using System.Windows;
 using WpfApp1.Models;
 using System.Linq;
 using WpfApp1.Pages;
+using System.Windows.Controls;
 
 namespace WpfApp1.Controlers
 {
@@ -48,15 +49,13 @@ namespace WpfApp1.Controlers
                 return false;
             }
         }
-        public static bool LogUsers(string login, string password )
+        public static bool LogUsers(string login, string password, Page page1, Page page2 )
         {
             try
             {
 
                 //считаем количество записей в таблице с заданными параметрами (логин, пароль)
-                Users users = bd.context.Users.Where(
-                x => x.Login == login. && x.Password == password
-                ).FirstOrDefault();
+                Users users = bd.context.Users.Where(x => x.Login == login).FirstOrDefault();
 
                 if (users == null)
                 {
@@ -73,11 +72,11 @@ namespace WpfApp1.Controlers
                     {
 
                         case 1:
-                            this.NavigationService.Navigate(new HomePage());
+                            this.NavigationService.Navigate(page1);
                             
                             break;
                         case 2:
-                            this.NavigationService.Navigate(new LogPage());
+                            this.NavigationService.Navigate(page2);
                             ;
                             break;
                             
